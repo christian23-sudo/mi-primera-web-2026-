@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Wallpapers</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     
+    
+    
+    #este es el body nota 
+  <section id="BIENVENIDO">
+    <div class="welcome-screen">
+        <button class="neon-btn" onclick="entrar()">ENTER</button>
+    </div>
+</section>
+
+<section id="galeria" class="hidden">
+    <button class="neon-btn" onclick="controlMusica()" style="position: fixed; bottom: 20px; right: 20px; font-size: 10px; z-index: 100;">🔇 MUTE</button>
+    <h2 class="neon-text">CATEGORÍAS</h2>
+    <div class="grid-categories">
+        <div class="card autos" onclick="mostrarCategoria('autos')">AUTOS</div>
+        <div class="card juegos" onclick="mostrarCategoria('juegos')">VIDEOJUEGOS</div>
+        <div class="card anime" onclick="mostrarCategoria('anime')">ANIME</div>
+        <div class="card retro" onclick="mostrarCategoria('retro')">RETRO</div>
+    </div>
+</section>
+
+<section id="visor-wallpapers" class="hidden">
+    <button class="neon-btn" onclick="volverALMENU()">VOLVER</button>
+    <h2 id="titulo-categoria" class="neon-text"></h2>
+    <div id="contenedor-fotos" class="grid-categories">
+        </div>
+</section>
+
+<audio id="musicaCyber" loop preload="auto">
+    <source src= "musica-fondo.mp3"  type="audio/mp3">
+</audio>
+    
+
+
+
+
+
+#este es mi codigo para no perderme
+ <script>
+
+    
+    
+    function entrar() {
+        let sonido = document.getElementById("musicaCyber");
+        if (sonido) {
+            sonido.volume = 0.4;
+            sonido.play().catch(e => console.log("Interacción requerida para audio"));
+        }
+        document.getElementById("BIENVENIDO").style.display = "none";
+        document.getElementById("galeria").classList.remove("hidden");
+    }
+
+    
+   function mostrarCategoria(tipo) {
+    
+    document.getElementById("galeria").classList.add("hidden");
+    document.getElementById("visor-wallpapers").classList.remove("hidden");
+
+    
+    let titulo = document.getElementById("titulo-categoria");
+    let contenedor = document.getElementById("contenedor-fotos");
+
+    contenedor.innerHTML = ""; 
+    titulo.innerText = tipo.toUpperCase();
+
+
+
+        const imagenes = { 
+            
+            'autos': [
+                'https://images.unsplash.com/photo-1503376780353-7e6692767b70',
+                'https://images.unsplash.com/photo-1583121274602-3e2820c69888',
+                 "https://digitalsynopsis.com/wp-content/uploads/2014/06/supercar-wallpapers-bugatti-4.jpg",
+                 "https://external-preview.redd.it/super-cars-wallpapers-1920x1080-v0-jvczdKYE4grb_JCdW7vtDnfnDGXh3w2cXv7vDto7xwk.jpg?width=640&crop=smart&auto=webp&s=0eeb0176b8cfd54d50edf82227dbe6853e9f5fa5"
+                 
+            
+            ],
+            'juegos': [
+                'https://images.unsplash.com/photo-1542751371-adc38448a05e',
+                'https://images.unsplash.com/photo-1511512578047-dfb367046420',
+                "https://cdn.wallpapersafari.com/81/93/AemaPV.jpg",
+                "https://i.pinimg.com/736x/02/07/0f/02070fa3b9a447237286ae05a848346f.jpg",
+                "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=500"
+                
+             ],
+            'anime': [
+ 'https://wallpapers-clan.com/wp-content/uploads/2026/02/sukuna-neon-pink-dark-jujutsu-kaisen-desktop-wallpaper-cover.jpg',
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoAmh5WYUGC5MdqImpuyPe-Xefea5JjgfllQ&s',
+                "https://wallpapers-clan.com/wp-content/uploads/2026/02/totoro-flower-crown-night-forest-aesthetic-desktop-wallpaper-cover.jpg",
+                "https://wallpapers-clan.com/wp-content/uploads/2026/02/one-piece-luffy-kanji-silhouette-minimalist-desktop-wallpaper-cover.jpg"
+            
+            ],
+            'retro': [
+                'https://images.unsplash.com/photo-1550745165-9bc0b252726f',
+                'https://images.unsplash.com/photo-1526509867162-5b0c0d1b4b33',
+                "https://wallpapers.com/images/featured/retro-pc-ljibqe88ia9kr7jt.jpg",
+                "https://img.freepik.com/foto-gratis/auto-anime-ciudad_23-2151710993.jpg"
+            ],
+       
+           if (imagenes,[tipo]) {
+            imagenes[tipo].forEach(link => {
+                contenedor.innerHTML += `
+                    <div class="card" style="background-image: url('${link}')">
+                        <a href="${link}" download="wallpaper.jpg" target="_blank" class="neon-btn download-btn">
+                            DESCARGAR
+                        </a>
+                    </div>
+                `; 
+            });
+        }
+       }
+     }
+    
+    function volverALMENU() {
+        document.getElementById("visor-wallpapers").classList.add("hidden");
+        document.getElementById("galeria").classList.remove("hidden");
+    }
+
+    
+    function controlMusica() {
+        let sonido = document.getElementById("musicaCyber");
+        if (sonido.paused) { 
+            sonido.play(); 
+        } else { 
+            sonido.pause(); 
+        }
+    }
+
+</script>
+
+</body>
+</html>

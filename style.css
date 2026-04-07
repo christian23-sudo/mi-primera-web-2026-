@@ -1,0 +1,202 @@
+body{
+    background-color:  #050505;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 133vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+ 
+.neon-btn {    
+    font-size: 3rem;
+    padding: 10px 30px;
+    color: #00f3ff;
+    background: transparent;
+    border: 4px solid #00f3ff;
+    border-radius: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: relative;
+    transition: 0.3s;
+
+    box-shadow: 0 0 10px #00f3ff, inset 0 0 10px #00f3ff;
+    text-shadow: 0 0 10px #00f3ff;
+
+    animation: flicker 2s infinite alternate;
+    }
+
+    .neon-btn:hover{
+     color: #050505;
+     background-color: #00f3ff;
+     box-shadow: 0 0 40px #00f3ff, 0 0 80px #00f3ff;
+    }
+    
+    
+    @keyframes flicker{ 
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100%{ 
+        opacity: 1;
+    }      
+20%,24%,55%{ 
+    opacity: 0.4;
+    text-shadow: none;
+    box-shadow: none;
+    } 
+   }
+
+
+
+
+.hidden{ 
+    display: none !important;
+     }
+     
+.neon-text{      
+    color: #ff0fff;
+    text-shadow: 0 0 15px #ff0fff;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    
+     }
+
+ .card {
+    height: 50px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #00f3ff;
+    color: #00f3ff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.5s;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 15px; 
+}
+
+ .grid-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 40px; 
+    width: 95%; 
+    max-width: 1400px; 
+    margin: 0 auto; 
+    padding: 20px;
+ }
+
+ .card:hover{ 
+    background: #00f3ff;
+    color: #000;
+    box-shadow: 0 0 30px #00f3ff;
+    transform: translateY(-5px);
+    }   
+    
+
+
+ 
+ .card {
+    
+    flex: 0 0 400px;
+    height: 300px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #00f3ff;
+    color: #00f3ff;
+    text-shadow: 0 0 10px #00f3ff;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    transition: 0.5s;
+    cursor: pointer;
+    margin: 10px; 
+}
+
+
+.card::before{
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0, 0.1); 
+}
+
+
+
+.card.autos { background-image: url(https://wallpapers.com/images/featured/autos-geniales-cipxrabgpci91ils.jpg); }.card.juegos { background-image: url(https://articles-img.sftcdn.net/auto-mapping-folder/sites/2/2023/05/resident-evil-4-remake-fondo.jpg); }
+.card.anime { background-image: url(https://i.pinimg.com/736x/26/2d/6d/262d6dd8fbb85a32c6b353175f9d57b7.jpg); }
+.card.retro { background-image: url(https://images8.alphacoders.com/866/866407.png); }
+
+
+#contenedor-fotos { 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+    padding: 20px;
+
+    }
+
+#contenedor-fotos .card { 
+    height: 350px;
+    border-radius: 15px;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 20px;
+
+    }
+
+
+    #visor-wallpapers {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    padding: 20px;
+}
+
+
+#visor-wallpapers .neon-btn {
+    margin-bottom: 30px; 
+    position: sticky;    
+    top: 10px;
+    z-index: 1000;       
+}
+
+
+@media (max-width: 600px){ 
+    .neon-text{ 
+     font-size: 1.5rem;
+   }
+   
+#grid-categorias, #contenedor-fotos {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .card{
+    height: 200px;
+  }
+
+  .neon-btn{
+    width: 90%;
+    padding: 15px;
+  } 
+ }
+
+
+
+ /* Estilo para el botón de descarga */
+.download-btn {
+    opacity: 0; /* Lo ocultamos al principio para que no tape la foto */
+    transition: 0.3s;
+}
+
+.card:hover .download-btn {
+    opacity: 1; /* Solo aparece cuando pasas el mouse por encima */
+    box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff; /* Resplandor neón */
+    border-color: #ff00ff;
+}
